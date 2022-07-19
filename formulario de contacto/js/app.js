@@ -48,7 +48,6 @@ function submitUserFormReCaptcha() {
     return bool;
 }
 
-
 // Eventos
 _email.addEventListener('blur', function() {
     if(this.value !== '') {
