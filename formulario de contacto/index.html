@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- font Awesome -->
+    <script src="https://kit.fontawesome.com/d10d1e89d5.js" crossorigin="anonymous"></script>
+
+    <!-- ReCaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+    <div class="background">
+        <div class="content">
+            <h1>
+                Contacto
+            </h1>
+
+            <form class="form" id="form">
+                <!-- Nombre -->
+                <div class="form__container">
+                    <input type="text" id="name" class="input" name="name"
+                    required
+                    >
+
+                    <label class="form__container-label">
+                        <span class="text">Nombre</span>
+                    </label>
+                </div>
+
+                <!-- Email -->
+                <div class="form__container" >
+                    <div class="mensajeErrorEmail" id="div_error"></div>
+                    
+                    <input type="text" id="email" class="input"
+                    name="email"
+                    required >
+                    <label class="form__container-label">
+                        <span class="text">Email</span>
+                    </label>
+                </div>
+
+                <!-- Selection -->
+                <div class="form__container" >
+                    <select name="subject" id="subject" class="input" required>
+                        <option value="Actividades y/o eventos">Actividades y/o eventos</option>
+                        <option value="Detalles del patreon" >Detalles del patreon</option>
+                        <option value="Productos">Productos</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+
+                    <label class="form__container-label">
+                        <span class="text">Asunto</span>
+                    </label>
+                </div>
+
+                <!-- Massage -->
+                <div class="form__container">
+                    <textarea id="massage" 
+                    class="input textarea"
+                    cols="30" rows="10" name="message" 
+                    required></textarea>
+                    <label class="form__container-label textAreaMessage">
+                        <span class="text Message">Mensaje</span>
+                    </label>
+                </div>
+
+                <!-- ReCaptcha -->
+                <div class="container__recaptcha" id="recaptcha-container">
+                    <div class="mensajeErrorCaptcha" id="container-textErrorCaptcha"></div>
+
+                    <div class="g-recaptcha" data-sitekey="6LdDI_4gAAAAAB_F2Ac9LE23Nz0rdJsiz45zWxjz"></div>
+                </div>
+
+                <button type="submit" id="submit" class="button">Enviar</button>
+            </form>
+
+            <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+            <script type="text/javascript">
+                emailjs.init('52OoZvcUS8cFTEzik')
+            </script>  
+        </div>    
+    </div>
+
+    <script src="js/app.js" ></script>
+</body>
+</html>

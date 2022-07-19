@@ -1,0 +1,300 @@
+:root {
+    --global-palette4: #270e8d;
+    --secundario: #0033ff;
+    --terciario: #e47206;
+    --cuaternario: #f184e4;
+    --global-palette1: #5ebcef;
+    --global-palette2: #bc7d37;
+    --global-palette3: #8d5e29;
+    --global-palette4: #0c1e31;
+    --global-palette5: #000000;
+    --global-palette6: #ffffff;
+
+}
+
+* {
+    font-family: 'Libre Franklin', sans-serif;
+    color: white;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    color: var(--global-palette2);
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.background {
+    /* background-image: url('https://stsci-opo.org/STScI-01G7DDBW5NNXTJV8PGHB0465QP.png'); */
+    background-color: #0c1e31;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    z-index: 1;
+    width: 350px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.061);
+    border-radius: 10px;
+    backdrop-filter: blur(7px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    padding-top: 40px;
+    gap: 30px;
+    margin: 20px;
+    
+}
+
+/* Formulario */
+.form {
+    width: 100%;
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.form__container {
+    width: 80%;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid red; */
+    margin: 10px;
+}
+
+.input {
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    background: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+.form__container-label {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--global-palette2);
+    box-sizing: border-box;
+}
+
+.form__container-label::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -2px;
+    border-bottom: 2px solid var(--global-palette6);
+    transform: translate(-50%);
+}
+
+.form__container-label::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -2px;
+    border-bottom: 2px solid var(--global-palette6);
+    transform: translate(+50%);
+    
+}
+
+.form__container-label::after, .form__container-label::before {
+    transition: transform .3s ease;
+}
+
+.text {
+    color: var(--global-palette6);
+    position: absolute;
+    top: 26px;
+    left: 3px;
+    transition: transform .3s ease, color .3s ease;
+}
+
+/* Selected */
+option {
+    background-color: var(--global-palette4);
+    color: var(--global-palette6);
+}
+
+/* TextArea */
+.form__container:nth-child(4) {
+    height: 130px;
+    
+}
+
+.textarea {
+    height: 110px;
+    resize: none;
+}
+
+.textAreaMessage {
+    height: 130px;
+    position: absolute;
+    bottom: 0;
+}
+/* Fin TextArea */
+
+
+.input:focus + .form__container-label::after, 
+.input:valid + .form__container-label::after {
+    transform: translate(-101%);
+}
+
+.input:focus + .form__container-label::before,
+.input:valid + .form__container-label::before {
+    transform: translate(+101%);
+}
+
+.input:focus + .form__container-label .text,
+.input:valid + .form__container-label .text {
+    color: var(--global-palette2);
+    transform: scale(.8) translate(-10px, -33px);
+    font-weight: bolder;
+}
+
+.button {
+    margin: 20px;
+    background-color: var(--global-palette4);
+    font-size: 15px;
+    border: 1px solid var(--global-palette6);
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background .3s ease;
+}
+
+.button:hover {
+    background-color: var(--global-palette2);
+}
+
+
+
+/* Validacion de formulario */
+
+/* Icono de envío */
+.icono {
+    color: transparent;
+    font-size: 40px;
+    position: absolute;
+    top: -20px;
+    transition: color .5s ease;
+}
+
+.icono-appear {
+    color: rgb(72, 255, 0);
+}
+
+.icono-opacity {
+    color: transparent;
+}
+/* Fin Icono de envío */
+
+
+/* Mensaje de error en input[email] */
+.mensajeErrorEmail {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-around;
+    right: 0;
+    top: -4px;
+}
+
+.textErrorMail {
+    font-size: 12px;
+    font-weight: bolder;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    transition: color .3s ease;
+}
+
+.textErrorMail-appear {
+    color: rgb(228, 67, 67);
+}
+
+.textErrorMail-opacity {
+    color: transparent;
+}
+
+.advertencia {
+    font-size: 14px;
+    display: inline;
+    color: transparent;
+    transition: color .3s ease;
+}
+
+.advertencia-appear {
+    color: rgb(228, 67, 67);
+}
+
+.advertencia-opacity {
+    color: transparent;
+}
+/* Fin Mensaje de error en input[email] */
+
+/* ReCaptcha */
+.container__recaptcha {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.mensajeErrorCaptcha {
+    position: absolute;
+    height: 25px;
+    right: 0;
+    top: -25px;
+    display: flex;
+    justify-content: right;
+}
+
+/* Error recaptcha */
+.errorCaptcha {
+    position: relative;
+    top: 3px;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: transparent;
+    transition: color .3s ease;
+}
+
+.errorCaptcha-appear {
+    color: rgb(228, 67, 67);
+}
+
+.errorCaptcha-opacity {
+    color: transparent;
+}
+/* Fin formulario */
+
+
+
+
