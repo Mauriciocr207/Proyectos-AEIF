@@ -51,8 +51,7 @@ h1 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
-    padding-top: 40px;
+    padding: 30px 20px;
     margin: 20px;
     
 }
@@ -178,7 +177,7 @@ option {
 }
 
 .button {
-    margin: 20px;
+    margin: 10px;
     background-color: var(--global-palette4);
     font-size: 15px;
     border: 1px solid var(--global-palette6);
