@@ -1,2 +1,2 @@
 # Proyectos-AEIF
-Formulario prueba para la página principal, creado con html, css y js
+En este repositorio se encontrarán varios proyectos enfocados a la mejora de la página de aeif.com
