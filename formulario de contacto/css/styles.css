@@ -87,6 +87,7 @@ h1 {
     outline: none;
     border: none;
     box-sizing: border-box;
+    color: var(--global-palette6);
 }
 
 .form__container-label {
@@ -222,7 +223,7 @@ option {
     align-items: center;
     justify-content: space-around;
     right: 0;
-    top: -4px;
+    top: 2px;
 }
 
 .textErrorMail {
@@ -233,6 +234,7 @@ option {
     padding: 0;
     color: transparent;
     transition: color .3s ease;
+    margin-right: 5px;
 }
 
 .textErrorMail-appear {
@@ -270,20 +272,22 @@ option {
     position: absolute;
     height: 25px;
     right: 0;
-    top: -25px;
+    top: -20px;
     display: flex;
     justify-content: right;
+    gap: 5px;
 }
 
 /* Error recaptcha */
 .errorCaptcha {
     position: relative;
-    top: 3px;
+    top: -1px;
     padding: 0;
     margin: 0;
     font-size: 14px;
     color: transparent;
     transition: color .3s ease;
+    padding-top: 0;
 }
 
 .errorCaptcha-appear {
