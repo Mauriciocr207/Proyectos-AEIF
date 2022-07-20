@@ -73,7 +73,7 @@ form.addEventListener('submit', function(e) {
     } else {
         console.log('captcha verificado');
 
-        button.textContent = 'Sending...';
+        button.textContent = 'Enviando...';
 
         const serviceID = 'default_service';
         const templateID = 'template_b01ypeh';
