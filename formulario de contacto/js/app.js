@@ -76,7 +76,7 @@ form.addEventListener('submit', function(e) {
         button.textContent = 'Enviando...';
 
         const serviceID = 'default_service';
-        const templateID = 'template_b01ypeh';
+        const templateID = 'template_7uwpr7r';
 
         emailjs.sendForm(serviceID, templateID, this)
             .then(() => {
