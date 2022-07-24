@@ -213,6 +213,25 @@ option {
 /* Fin Icono de envío */
 
 
+/* Icono de error de envio */
+.icono-x {
+    color: transparent;
+    font-size: 40px;
+    position: absolute;
+    top: -10px;
+    transition: color .5s ease;
+}
+
+.icono-x-appear {
+    color: rgb(228, 67, 67);
+}
+
+.icono-x-opacity {
+    color: transparent;
+}
+/* Fin Icono de error de envio */
+
+
 /* Mensaje de error en input[email] */
 .mensajeErrorEmail {
     display: flex;

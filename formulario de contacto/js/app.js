@@ -75,23 +75,25 @@ form.addEventListener('submit', function(e) {
 
         button.textContent = 'Enviando...';
 
-        const serviceID = 'default_service';
-        const templateID = 'template_7uwpr7r';
+        const serviceID = 'default_service'; //colocar el id del servicio
+        const templateID = 'template_7uwpr7r'; //Colocar el id del formato de correo
+        //Estos datos se encuentran en la cuenta de EmailJS.
 
         emailjs.sendForm(serviceID, templateID, this)
             .then(() => {
 
-            mostrarMensaje('icono fa-solid fa-circle-check', 'I', '#form');
+                mostrarMensaje('icono fa-solid fa-circle-check', 'I', '#form');
 
-            inputs.forEach(input => {
-                input.value = '';
-            });
+                inputs.forEach(input => {
+                    input.value = '';
+                });
 
-            button.textContent = 'Enviar';
+                button.textContent = 'Enviar';
 
             }, (err) => {
-            
-            console.log(JSON.stringify(err));
+                mostrarMensaje('icono-x fa-solid fa-circle-xmark', 'I', '#form');
+                button.textContent = 'Enviar';
+                console.log(JSON.stringify(err));
             });
 
         }    
