@@ -10,6 +10,12 @@ const textError = document.querySelector('#textError'); //Texto del error
 const simbolo = document.querySelector('#simbolo'); //Icono del error
 
 const button = document.querySelector('#submit'); // button
+const destiny = document.querySelector('#destiny');
+
+const templateIDs = {
+    mesaDirectiva: "template_7uwpr7r", 
+    consejoConsultivo: "template_ws1cq1n"
+}
 
 // Funciones
 
@@ -48,6 +54,31 @@ function submitUserFormReCaptcha() {
     return bool;
 }
 
+
+// Enviar formulario
+function envioFormulario(service, template, form) {
+    const serviceID = service; //colocar el id del servicio
+    const templateID = template; //Colocar el id del formato de correo
+    //Estos datos se encuentran en la cuenta de EmailJS.
+
+    emailjs.sendForm(serviceID, templateID, form)
+        .then(() => {
+
+            mostrarMensaje('icono fa-solid fa-circle-check', 'I', '#form');
+
+            inputs.forEach(input => {
+                input.value = '';
+            });
+
+            button.textContent = 'Enviar';
+
+        }, (err) => {
+            mostrarMensaje('icono-x fa-solid fa-circle-xmark', 'I', '#form');
+            button.textContent = 'Enviar';
+            console.log(JSON.stringify(err));
+        });
+}
+
 // Eventos
 _email.addEventListener('blur', function() {
     if(this.value !== '') {
@@ -72,31 +103,21 @@ form.addEventListener('submit', function(e) {
 
     } else {
         console.log('captcha verificado');
-
         button.textContent = 'Enviando...';
-
-        const serviceID = 'default_service'; //colocar el id del servicio
-        const templateID = 'template_7uwpr7r'; //Colocar el id del formato de correo
-        //Estos datos se encuentran en la cuenta de EmailJS.
-
-        emailjs.sendForm(serviceID, templateID, this)
-            .then(() => {
-
-                mostrarMensaje('icono fa-solid fa-circle-check', 'I', '#form');
-
-                inputs.forEach(input => {
-                    input.value = '';
-                });
-
-                button.textContent = 'Enviar';
-
-            }, (err) => {
-                mostrarMensaje('icono-x fa-solid fa-circle-xmark', 'I', '#form');
-                button.textContent = 'Enviar';
-                console.log(JSON.stringify(err));
-            });
-
-        }    
+        if(destiny.value == templateIDs.mesaDirectiva) {
+            // Prueba envio a la Mesa Directiva
+            envioFormulario('default_service', templateIDs.mesaDirectiva, this);
+        }
+        else if(destiny.value == templateIDs.consejoConsultivo) {
+            // Prueba envio al Consejo consultivo
+            envioFormulario('default_service', templateIDs.consejoConsultivo, this);
+        }
+        else {
+            // Si ninguna se cumple, aparece un error
+            mostrarMensaje('icono-x fa-solid fa-circle-xmark', 'I', '#form');
+            button.textContent = 'Enviar';
+        }
+    }    
 });
 
 

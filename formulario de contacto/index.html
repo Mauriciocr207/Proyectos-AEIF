@@ -18,6 +18,18 @@
             </h1>
 
             <form class="form" id="form">
+                <!-- Selección de destinatario -->
+                <div class="form__container">
+                    <select name="destiny" id="destiny" class="input" required>
+                        <option value="template_7uwpr7r">Mesa directiva</option>
+
+                        <option value="template_ws1cq1n">Consejo consultivo</option>
+                    </select>
+                    <label class="form__container-label">
+                        <span class="text Message">Destinatario</span>
+                    </label>
+                </div>
+
                 <!-- Nombre -->
                 <div class="form__container">
                     <input type="text" id="name" class="input" name="name"
@@ -41,7 +53,7 @@
                     </label>
                 </div>
 
-                <!-- Selection -->
+                <!-- Asunto -->
                 <div class="form__container">
                     <input type="text" id="subject" class="input" name="subject"
                     required
